@@ -1,66 +1,30 @@
 ﻿@using System.Text
-@using Main.Controllers
 @using Main.Models
 
 
 @{
     ViewBag.Title = "Projects";
-
-    //Layout = ;
-    string url = "https://api.github.com/users/jeffreymjohnson";
-    string getRepos = "/repos";
-
-    url = url + getRepos;
-
-    HttpWebRequest webRequest = (HttpWebRequest)HttpWebRequest.Create(url);
-    webRequest.Method = "GET";
-    webRequest.ContentType = "text/html";
-
-    // *** Set properties
-    webRequest.Timeout = 10000;     // 10 secs
-    webRequest.UserAgent = "anonymous";
-
-
-    HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
-    Encoding encoding = Encoding.GetEncoding(1252);  // Windows default Code Page
-
-    StreamReader reader = new StreamReader(webResponse.GetResponseStream(), encoding);
-    string html = reader.ReadToEnd();
-
-    List<GithubRepo> repos = Json.Decode<List<GithubRepo>>(html);
-    // GithubRepo githubRepo = ;
-
-    HttpStatusCode code = webResponse.StatusCode;
-
-    webResponse.Close();
-    reader.Close();
-
-
+    
 }
 
 <div>
     <div class="page-header"><h1>My current and past projects</h1></div>
-    @{
-        int count = 1;
-        foreach (GithubRepo repo in repos)
-        {
-            bool even = count % 2 == 0;
-            string color = "";
-            if (even)
-            {
-                color = @"background-color: #375a7f;";
-            }
-            else
-            {
-                color = @"background-color: #28415b;";
-            }
-            count++;
-            <div class="Repo" style="@color">
-                <h3><a href="@repo.html_url">@repo.name</a></h3>
-                <text>@repo.description</text>
-                
-            </div>
-        }
-        
-    }
+    <div>
+        <h1>Gacha Town</h1>
+        <img src="gachatown_logo.png" alt="screen-shot"/>
+        Lead programmer and Technical director for Gacha Town, a mobile collections game. Primarily responsible for project management,
+        production, and programming backend systems. Worked with a small mixed team of artists and programmers.
+    </div>
+    <div>
+        <h1>Versi World</h1>
+        <img src="" alt="screen-shot"/>
+        Worked in two-man team under an iterative development cycle to produce Versi World, a physics based pc game. Responsible for
+        versioning and task distribution as well as implementing primary mechanics.
+    </div>
+    <div>
+        <h1>Question It</h1>
+        <img src="" alt="screen-shot" />
+        Collaborated with artists to develop Question It. Responsible for contributing to design, communicating with art pipeline, 
+        implementing backend systems, 2D sprite animations and enemy artificial intelligence.
+    </div>
 </div>

@@ -1,0 +1,66 @@
+﻿@using System.Text
+@using Main.Controllers
+@using Main.Models
+
+
+@{
+    ViewBag.Title = "Projects";
+
+    //Layout = ;
+    string url = "https://api.github.com/users/jeffreymjohnson";
+    string getRepos = "/repos";
+
+    url = url + getRepos;
+
+    HttpWebRequest webRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+    webRequest.Method = "GET";
+    webRequest.ContentType = "text/html";
+
+    // *** Set properties
+    webRequest.Timeout = 10000;     // 10 secs
+    webRequest.UserAgent = "anonymous";
+
+
+    HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+    Encoding encoding = Encoding.GetEncoding(1252);  // Windows default Code Page
+
+    StreamReader reader = new StreamReader(webResponse.GetResponseStream(), encoding);
+    string html = reader.ReadToEnd();
+
+    List<GithubRepo> repos = Json.Decode<List<GithubRepo>>(html);
+    // GithubRepo githubRepo = ;
+
+    HttpStatusCode code = webResponse.StatusCode;
+
+    webResponse.Close();
+    reader.Close();
+
+
+}
+
+<div>
+    <div class="page-header"><h1>My current and past projects</h1></div>
+    @{
+        int count = 1;
+        foreach (GithubRepo repo in repos)
+        {
+            bool even = count % 2 == 0;
+            string color = "";
+            if (even)
+            {
+                color = @"background-color: #375a7f;";
+            }
+            else
+            {
+                color = @"background-color: #28415b;";
+            }
+            count++;
+            <div class="Repo" style="@color">
+                <h3><a href="@repo.html_url">@repo.name</a></h3>
+                <text>@repo.description</text>
+                
+            </div>
+        }
+        
+    }
+</div>

@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,6 +24,7 @@
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
                 <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
             </ul>
         </div>
@@ -31,11 +33,8 @@
 <div class="container body-content">
     <div class="jumbotron">
         <div class="text-center">
-            <h2>Jeffrey M. Johnson</h2>
-            <h4>
-                Seattle Area, USA<br/>
-                <a href="mailto:Jeffrey@jeffreymjohnson.net">Jeffrey@JeffreyMJohnson.net</a>
-            </h4>
+            <h1><b>Jeffrey M. Johnson</b></h1>
+            <h2>Programmer</h2>
             “The only true wisdom is in knowing you know nothing.” – Socrates
         </div>
     </div>
@@ -43,7 +42,7 @@
     @RenderBody()
     <hr/>
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - Jeffrey M. Johnson</p>
     </footer>
 </div>
 
