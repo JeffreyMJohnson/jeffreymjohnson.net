@@ -141,7 +141,7 @@
     <Content Include="Images\linkedIn_button_small.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Jeffrey M Johnson Resume.pdf" />
+    <Content Include="Jeffrey_M_Johnson_Resume.pdf" />
     <None Include="Properties\PublishProfiles\Home.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
