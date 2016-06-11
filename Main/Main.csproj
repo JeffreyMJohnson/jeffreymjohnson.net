@@ -175,6 +175,8 @@
     <Content Include="Views\Home\Projects_old.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\GachaTown.cshtml" />
+    <Content Include="Views\Home\MagicAndMagnums.cshtml" />
+    <Content Include="Views\Home\JMath.cshtml" />
     <None Include="Views\Home\Resume.cshtml" />
     <Content Include="Views\Home\VersiWorld.cshtml" />
   </ItemGroup>

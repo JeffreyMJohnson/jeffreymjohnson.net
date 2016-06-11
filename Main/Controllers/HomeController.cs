@@ -36,12 +36,22 @@ namespace Main.Controllers
             return View();
         }
 
+        public ActionResult MagicAndMagnums()
+        {
+            return View();
+        }
+
         public ActionResult GachaTown()
         {
             return View();
         }
 
         public ActionResult Versiworld()
+        {
+            return View();
+        }
+
+        public ActionResult JMath()
         {
             return View();
         }
