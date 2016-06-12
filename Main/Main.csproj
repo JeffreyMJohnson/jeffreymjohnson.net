@@ -138,6 +138,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\GitHub-Mark-32px.png" />
     <Content Include="Images\GitHub-Mark-Light-32px.png" />
+    <Content Include="Images\versiworld\instructions.png" />
+    <Content Include="Images\versiworld\level_three.png" />
+    <Content Include="Images\versiworld\level_two.png" />
     <Content Include="Images\linkedIn_button_small.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -182,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UnityProjects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
