@@ -174,11 +174,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Projects_old.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\GachaTown.cshtml" />
-    <Content Include="Views\Home\MagicAndMagnums.cshtml" />
-    <Content Include="Views\Home\JMath.cshtml" />
+    <Content Include="Views\Home\projects\GachaTown.cshtml" />
+    <Content Include="Views\Home\projects\MagicAndMagnums.cshtml" />
+    <Content Include="Views\Home\projects\JMath.cshtml" />
     <None Include="Views\Home\Resume.cshtml" />
-    <Content Include="Views\Home\VersiWorld.cshtml" />
+    <Content Include="Views\Home\projects\VersiWorld.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
