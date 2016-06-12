@@ -136,8 +136,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\GitHub-Mark-32px.png" />
+    <Content Include="Images\GitHub-Mark-Light-32px.png" />
+    <Content Include="Images\versiworld\instructions.png" />
+    <Content Include="Images\versiworld\level_three.png" />
+    <Content Include="Images\versiworld\level_two.png" />
+    <Content Include="Images\linkedIn_button_small.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Jeffrey_M_Johnson_Resume.pdf" />
+    <None Include="Properties\PublishProfiles\Home.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -150,7 +158,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\gachatown_logo.png">
+    <Content Include="Images\gachatown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Projects.cshtml" />
@@ -169,11 +177,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Projects_old.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\projects\GachaTown.cshtml" />
+    <Content Include="Views\Home\projects\MagicAndMagnums.cshtml" />
+    <Content Include="Views\Home\projects\JMath.cshtml" />
     <None Include="Views\Home\Resume.cshtml" />
+    <Content Include="Views\Home\projects\VersiWorld.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\images\" />
+    <Folder Include="UnityProjects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
