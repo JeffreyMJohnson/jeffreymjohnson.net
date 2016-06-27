@@ -56,10 +56,9 @@ namespace Main.Controllers
         {
             return View(PROJECTS_PATH + "JMath.cshtml");
         }
-
-        public ActionResult foobar()
+        public ActionResult DontQuestionIt()
         {
-            return View(PROJECTS_PATH + "foobar/foo.cshtml");
+            return View(PROJECTS_PATH + "DontQuestionIt.cshtml");
         }
     }
 }

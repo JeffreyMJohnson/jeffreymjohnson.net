@@ -161,6 +161,26 @@
     <Content Include="Images\gachatown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="UnityProjects\DontQuestionIt\index.html" />
+    <Content Include="UnityProjects\DontQuestionIt\Release\UnityLoader.js" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\favicon.ico" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\fullbar.png" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\fullscreen.png" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\loadingbar.png" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\logo.png" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\progresslogo.png" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\style.css" />
+    <Content Include="UnityProjects\DontQuestionIt\TemplateData\UnityProgress.js" />
+    <Content Include="UnityProjects\VersiWorld\index.html" />
+    <Content Include="UnityProjects\VersiWorld\Release\UnityLoader.js" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\favicon.ico" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\fullbar.png" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\fullscreen.png" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\loadingbar.png" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\logo.png" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\progresslogo.png" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\style.css" />
+    <Content Include="UnityProjects\VersiWorld\TemplateData\UnityProgress.js" />
     <Content Include="Views\Home\Projects.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -180,12 +200,18 @@
     <Content Include="Views\Home\projects\GachaTown.cshtml" />
     <Content Include="Views\Home\projects\MagicAndMagnums.cshtml" />
     <Content Include="Views\Home\projects\JMath.cshtml" />
+    <Content Include="UnityProjects\VersiWorld\Release\0.3_release.datagz" />
+    <Content Include="UnityProjects\VersiWorld\Release\0.3_release.jsgz" />
+    <Content Include="UnityProjects\VersiWorld\Release\0.3_release.memgz" />
+    <Content Include="Views\Home\projects\DontQuestionIt.cshtml" />
+    <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.datagz" />
+    <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.jsgz" />
+    <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.memgz" />
     <None Include="Views\Home\Resume.cshtml" />
     <Content Include="Views\Home\projects\VersiWorld.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UnityProjects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
