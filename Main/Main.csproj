@@ -178,6 +178,16 @@
     <Content Include="UnityProjects\DontQuestionIt\TemplateData\progresslogo.png" />
     <Content Include="UnityProjects\DontQuestionIt\TemplateData\style.css" />
     <Content Include="UnityProjects\DontQuestionIt\TemplateData\UnityProgress.js" />
+    <Content Include="UnityProjects\GachaTown\index.html" />
+    <Content Include="UnityProjects\GachaTown\Release\UnityLoader.js" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\favicon.ico" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\fullbar.png" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\fullscreen.png" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\loadingbar.png" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\logo.png" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\progresslogo.png" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\style.css" />
+    <Content Include="UnityProjects\GachaTown\TemplateData\UnityProgress.js" />
     <Content Include="UnityProjects\VersiWorld\index.html" />
     <Content Include="UnityProjects\VersiWorld\Release\UnityLoader.js" />
     <Content Include="UnityProjects\VersiWorld\TemplateData\favicon.ico" />
@@ -214,6 +224,10 @@
     <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.datagz" />
     <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.jsgz" />
     <Content Include="UnityProjects\DontQuestionIt\Release\0.3_release.memgz" />
+    <Content Include="UnityProjects\GachaTown\Release\.htaccess" />
+    <Content Include="UnityProjects\GachaTown\Release\webgl.datagz" />
+    <Content Include="UnityProjects\GachaTown\Release\webgl.jsgz" />
+    <Content Include="UnityProjects\GachaTown\Release\webgl.memgz" />
     <None Include="Views\Home\Resume.cshtml" />
     <Content Include="Views\Home\projects\VersiWorld.cshtml" />
   </ItemGroup>
