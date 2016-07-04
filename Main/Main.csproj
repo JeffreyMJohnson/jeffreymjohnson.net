@@ -136,6 +136,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\GachaTown\buy.jpg" />
+    <Content Include="Images\GachaTown\buy2.jpg" />
+    <Content Include="Images\GachaTown\collection1.jpg" />
+    <Content Include="Images\GachaTown\collection2.jpg" />
+    <Content Include="Images\GachaTown\collection3.jpg" />
+    <Content Include="Images\GachaTown\gachatown.png" />
+    <Content Include="Images\GachaTown\main.jpg" />
+    <Content Include="Images\GachaTown\town1.jpg" />
+    <Content Include="Images\GachaTown\town2.jpg" />
+    <Content Include="Images\GachaTown\town3.jpg" />
     <Content Include="Images\GitHub-Mark-32px.png" />
     <Content Include="Images\GitHub-Mark-Light-32px.png" />
     <Content Include="Images\versiworld\instructions.png" />
@@ -158,9 +168,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\gachatown.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="UnityProjects\DontQuestionIt\index.html" />
     <Content Include="UnityProjects\DontQuestionIt\Release\UnityLoader.js" />
     <Content Include="UnityProjects\DontQuestionIt\TemplateData\favicon.ico" />
