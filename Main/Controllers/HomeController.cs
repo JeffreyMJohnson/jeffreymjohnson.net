@@ -9,7 +9,6 @@ namespace Main.Controllers
 {
     public class HomeController : Controller
     {
-        const string PROJECTS_PATH = "~/Views/Home/projects/";
         public ActionResult Index()
         {
             return View();
@@ -24,7 +23,8 @@ namespace Main.Controllers
 
         public ActionResult Projects()
         {
-            return View();
+
+            return View(Main.Models.Globals.Projects);
         }
 
         public ActionResult Resume()
@@ -37,28 +37,9 @@ namespace Main.Controllers
             return View();
         }
 
-        public ActionResult MagicAndMagnums()
+        public ActionResult ProjectPage(string projectName)
         {
-            return View(PROJECTS_PATH + "MagicandMagnums.cshtml");
-        }
-
-        public ActionResult GachaTown()
-        {
-            return View(PROJECTS_PATH + "GachaTown.cshtml");
-        }
-
-        public ActionResult Versiworld()
-        {
-            return View(PROJECTS_PATH + "VersiWorld.cshtml");
-        }
-
-        public ActionResult JMath()
-        {
-            return View(PROJECTS_PATH + "JMath.cshtml");
-        }
-        public ActionResult DontQuestionIt()
-        {
-            return View(PROJECTS_PATH + "DontQuestionIt.cshtml");
+            return View("projects/" + projectName);
         }
     }
 }
