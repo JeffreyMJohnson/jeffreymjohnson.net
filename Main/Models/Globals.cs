@@ -13,6 +13,12 @@ namespace Main.Models
                 new Project()
                 {
                     JobTitle = "Programmer",
+                    Title = "JeffreyMJohnson.net",
+                    Path = "HomeWebSite"
+                },
+                new Project()
+                {
+                    JobTitle = "Programmer",
                     Title = "Magic and Magnums Torch Edition",
                     Path = "MagicandMagnums"
                 },

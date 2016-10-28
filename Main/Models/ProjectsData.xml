@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<projects>
+  <project>
+    <position>Programmer</position>
+    <title>Magic And Magnums Torch Edition</title>
+    <description>A hands on game that uses a physical sandbox to model a terrain in real time for a tower defense style game to played on top of. Shown at a number of conferences and trade shows including GDC 2016.</description>
+    <video width="560" height="315" src="https://www.youtube.com/embed/RQ4DZulNDlM"/>
+    <implemented>
+      <task>
+        I implemented the pathfinding of the characters in the game. The terrain and potential paths are weighted by steepness, height
+        and terrain type to calculate an overall cost to travel the edge. A* is then used to calculate a path for each character.
+      </task>
+      <task>
+        I also worked on the tower and character shooting mechanics. This uses a firing radius for each character type for general range,
+        but also utilizes a line of sight calculation to see if terrain or other characters are blocking the firing path.
+      </task>
+    </implemented>
+  </project>
+  <project>
+    <position>Programmer</position>
+    <title>Don't Question It</title>
+    <description>
+      This project began as a 2.5D puzzle game created at a game jam and was then given to another group to continue working on.
+      I was offered the chance to get the experience of working on a development team consisting of both artists and programmers
+      before the rest of my class.
+    </description>
+    <implemented>
+      <task>
+        I implemented the fighting logic including wiring up the animations to the inputs as well as dynamic hit colliders.
+      </task>
+    </implemented>
+    <links>
+      <link type="play" path="~/UnityProjects/DontQuestionIt/index.html"/>
+      <link type="source" path="https://github.com/TeamQuestionIt/FinalProject"/>
+    </links>
+  </project>
+  <project>
+    <position>Programmer / Technical Lead</position>
+    <title>Gacha Town</title>
+    <description>
+      "Gachatown is a charming, colorful game that focuses on the experience of obtaining new characters from a gachapon machine.
+      The fun doesn't stop there; with your collection, you can create an interactive town to earn you even more coins to extend your
+      collection further! As you play, you can unlock more machines to build environments to your own preferences!"
+    </description>
+    <implemented>
+      <task>
+        I decided to use a SCRUM / Agile management style, so an overall roadmap was created and with that a one-week sprint task list was
+        chosen. A complete, working (albeit crude) application was done by the one-week deadline and we iterated on that build, improving each week.
+      </task>
+      <task>
+        My programming responsibilities were designing and implementing the collection and management backend systems as well as owning a main scene in the game (the town scene).
+      </task>
+    </implemented>
+    <links>
+      <link type="play" path="~/UnityProjects/DontQuestionIt/index.html"/>
+      <link type="source" path="https://github.com/TeamQuestionIt/FinalProject"/>
+    </links>
+  </project>
+</projects>

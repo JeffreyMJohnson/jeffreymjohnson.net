@@ -230,6 +230,7 @@
     <Content Include="UnityProjects\GachaTown\Release\webgl.datagz" />
     <Content Include="UnityProjects\GachaTown\Release\webgl.jsgz" />
     <Content Include="UnityProjects\GachaTown\Release\webgl.memgz" />
+    <Content Include="Views\Home\projects\HomeWebSite.cshtml" />
     <None Include="Views\Home\Resume.cshtml" />
     <Content Include="Views\Home\projects\VersiWorld.cshtml" />
   </ItemGroup>
