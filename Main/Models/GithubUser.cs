@@ -8,25 +8,11 @@ namespace Main.Models
 {
     public class GithubUser
     {
-        //public string Login { get; set; }
-        //public int Id { get; set; }
-        //public string AvatarUrl { get; set; }
-        //public string url { get; set; }
-        //public string FollowersUrl { get; set; }
-        //public string repos_url { get; set; }
-        //public string GistsUrl { get; set; }
-        //public string Name { get; set; }
-
+        #region public API
         public GithubRepo[] Repos { get; set; }
 
         public GithubRepo[] FilteredRepos { get; set; }
 
-        public GithubUser(string dataPath)
-        {
-            _reposDataPath = dataPath + "repos.json";
-            LoadData();
-            FilterRepos();
-        }
         public void RefreshDataFiles()
         {
             //get the repos
@@ -34,25 +20,30 @@ namespace Main.Models
             //paginate to 100 
             string uri = string.Format("{0}/users/{1}/repos?per_page=100", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME);
             string repos = GetWebRequest(uri);
-            
+
             //update the cache
             Repos = JsonConvert.DeserializeObject<GithubRepo[]>(repos);
             //load contents
-            foreach(GithubRepo repo in Repos)
+            foreach (GithubRepo repo in Repos)
             {
                 repo.contents = GetContent(repo);
                 //set the useme flag once so only have to itterate through contents when refresh
                 repo.UseMe = UseMeFlagSetting(repo.contents);
-            }
 
+                //get the readme if it exists
+                //GET /repos/:owner/:repo/readme
+                uri = string.Format("{0}/repos/{1}/{2}/readme", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME, repo.name);
+                string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
+                repo.ReadMe_html = response;
+            }
             File.WriteAllText(_reposDataPath, JsonConvert.SerializeObject(Repos));
         }
 
         public GithubRepo GetRepo(string name)
         {
-            foreach(var repo in FilteredRepos)
+            foreach (var repo in FilteredRepos)
             {
-                if(repo.name == name)
+                if (repo.name == name)
                 {
                     return repo;
                 }
@@ -60,12 +51,44 @@ namespace Main.Models
             throw new ArgumentException("name not in Filtered Repo list.");
         }
 
+        public void UpdateReadmeDataOnly(bool useFiltered = true)
+        {
+            GithubRepo[] repos = useFiltered ? FilteredRepos : Repos;
+            foreach (var repo in repos)
+            {
+                string uri = string.Format("{0}/repos/{1}/{2}/readme", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME, repo.name);
+                try
+                {
+                    string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
+                    repo.ReadMe_html = response;
+                }
+                catch
+                {
+                    repo.ReadMe_html = "<div>No ReadMe file in the repo yet. Get on it.</div>";
+                }
+
+            }
+            File.WriteAllText(_reposDataPath, JsonConvert.SerializeObject(Repos));
+        }
+        #endregion
+        #region Constructor
+        public GithubUser(string dataPath)
+        {
+            _reposDataPath = dataPath + "repos.json";
+            LoadData();
+            //debug
+            //UpdateReadmeDataOnly();
+        }
+        #endregion
+
+        #region private fields/ methods
+
         private void FilterRepos()
         {
             List<GithubRepo> result = new List<GithubRepo>();
-            foreach(var repo in Repos)
+            foreach (var repo in Repos)
             {
-                if(repo.UseMe)
+                if (repo.UseMe)
                 {
                     result.Add(repo);
                 }
@@ -75,9 +98,9 @@ namespace Main.Models
 
         private bool UseMeFlagSetting(GithubRepoContent[] contents)
         {
-            foreach(var content in contents)
+            foreach (var content in contents)
             {
-                if(content.type == "file" && content.name == ".useme")
+                if (content.type == "file" && content.name == ".useme")
                 {
                     return true;
                 }
@@ -100,24 +123,29 @@ namespace Main.Models
             }
             string repos = File.ReadAllText(_reposDataPath);
             Repos = JsonConvert.DeserializeObject<GithubRepo[]>(repos);
+            FilterRepos();
         }
 
-        private String GetWebRequest(String uri)
+        private String GetWebRequest(String uri, string acceptType = "application/json")
         {
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             request.UserAgent = "Anything";
             request.Headers.Add(HttpRequestHeader.Authorization, "token 46516dde38ffbd905b382da5ccb98ef5f092a08f");
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string responseString = reader.ReadToEnd();
-            response.Close();
-            stream.Close();
-            reader.Close();
-            return responseString;
+            request.Accept = acceptType;
+            using (WebResponse response = request.GetResponse())
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string responseString = reader.ReadToEnd();
+                        return responseString;
+                    }
+                }
+            }
         }
         private string _reposDataPath;
-
+        #endregion
 
     }
 }

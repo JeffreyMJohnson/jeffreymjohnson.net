@@ -10,8 +10,7 @@ namespace Main.Controllers
     {
         public ActionResult Index()
         {
-            //var datafile = Server.MapPath("~/foo.txt");
-            //System.IO.File.WriteAllText(datafile, "wut me?");
+
             return View();
         }
 
