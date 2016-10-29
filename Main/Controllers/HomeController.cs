@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Main.Models;
-
 namespace Main.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            //var datafile = Server.MapPath("~/foo.txt");
+            //System.IO.File.WriteAllText(datafile, "wut me?");
             return View();
         }
 
@@ -23,7 +24,8 @@ namespace Main.Controllers
 
         public ActionResult Projects()
         {
-
+            //Main.Models.ProjectList projects = new ProjectList(Server.MapPath("~/"));
+            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\");
             return View(Main.Models.Globals.Projects);
         }
 
@@ -39,6 +41,7 @@ namespace Main.Controllers
 
         public ActionResult ProjectPage(string projectName)
         {
+            
             return View("projects/" + projectName);
         }
     }

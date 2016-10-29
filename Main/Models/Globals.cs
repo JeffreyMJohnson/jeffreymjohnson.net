@@ -7,6 +7,8 @@ namespace Main.Models
 {
     public static class Globals
     {
+        public const string GITHUB_API_URI = "https://api.github.com";
+        public const string GITHUB_USERNAME = "JeffreyMJohnson";
         public static List<Project> Projects { get; set; } = 
             new List<Project>()
             {
