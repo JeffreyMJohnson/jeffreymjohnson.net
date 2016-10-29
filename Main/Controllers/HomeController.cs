@@ -24,9 +24,21 @@ namespace Main.Controllers
 
         public ActionResult Projects()
         {
-            //Main.Models.ProjectList projects = new ProjectList(Server.MapPath("~/"));
             Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\");
-            return View(Main.Models.Globals.Projects);
+            return View(user);
+        }
+
+        public ActionResult ProjectDetail(string projectName)
+        {//todo implement exception handling for all views.
+            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\");
+            try
+            {
+                return View(user.GetRepo(projectName));
+            }
+            catch (ArgumentException e)
+            {
+                return View("SomethingFuckedUp", (object)e.Message);
+            }
         }
 
         public ActionResult Resume()
@@ -41,7 +53,7 @@ namespace Main.Controllers
 
         public ActionResult ProjectPage(string projectName)
         {
-            
+
             return View("projects/" + projectName);
         }
     }

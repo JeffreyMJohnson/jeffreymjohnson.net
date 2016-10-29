@@ -2,22 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
 
 namespace Main.Models
 {
     public class GithubUser
     {
-        public string Login { get; set; }
-        public int Id { get; set; }
-        public string AvatarUrl { get; set; }
-        public string url { get; set; }
-        public string FollowersUrl { get; set; }
-        public string repos_url { get; set; }
-        public string GistsUrl { get; set; }
-        public string Name { get; set; }
+        //public string Login { get; set; }
+        //public int Id { get; set; }
+        //public string AvatarUrl { get; set; }
+        //public string url { get; set; }
+        //public string FollowersUrl { get; set; }
+        //public string repos_url { get; set; }
+        //public string GistsUrl { get; set; }
+        //public string Name { get; set; }
 
         public GithubRepo[] Repos { get; set; }
 
@@ -48,6 +46,18 @@ namespace Main.Models
             }
 
             File.WriteAllText(_reposDataPath, JsonConvert.SerializeObject(Repos));
+        }
+
+        public GithubRepo GetRepo(string name)
+        {
+            foreach(var repo in FilteredRepos)
+            {
+                if(repo.name == name)
+                {
+                    return repo;
+                }
+            }
+            throw new ArgumentException("name not in Filtered Repo list.");
         }
 
         private void FilterRepos()

@@ -1,0 +1,13 @@
+﻿@using Main.Models
+@model GithubRepo
+@{
+    
+    ViewBag.Title = "ProjectDetail";
+}
+
+<h2>@Model.name</h2>
+<p>
+    @Model.description
+</p>
+<a href="@Model.html_url">Repo</a>
+
