@@ -137,7 +137,7 @@ namespace Main.Models
         {
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             request.UserAgent = "Anything";
-            request.Headers.Add(HttpRequestHeader.Authorization, "token 3f27c3395e345837be15e60368fdefaa6ad816d6");
+            request.Headers.Add(HttpRequestHeader.Authorization, "token " + Main.Models.Private.Crypto.GITHUB_PERSONAL_ACCESS_TOKEN);
             request.Accept = acceptType;
             using (WebResponse response = request.GetResponse())
             {
