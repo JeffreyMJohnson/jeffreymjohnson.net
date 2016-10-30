@@ -33,8 +33,15 @@ namespace Main.Models
                 //get the readme if it exists
                 //GET /repos/:owner/:repo/readme
                 uri = string.Format("{0}/repos/{1}/{2}/readme", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME, repo.name);
-                string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
-                repo.ReadMe_html = response;
+                try
+                {
+                    string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
+                    repo.ReadMe_html = response;
+                }
+                catch
+                {
+                    repo.ReadMe_html = "<div>No ReadMe file in the repo yet. Get on it.</div>";
+                }
             }
             File.WriteAllText(_reposDataPath, JsonConvert.SerializeObject(Repos));
         }
@@ -130,7 +137,7 @@ namespace Main.Models
         {
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             request.UserAgent = "Anything";
-            request.Headers.Add(HttpRequestHeader.Authorization, "token 46516dde38ffbd905b382da5ccb98ef5f092a08f");
+            request.Headers.Add(HttpRequestHeader.Authorization, "token 3f27c3395e345837be15e60368fdefaa6ad816d6");
             request.Accept = acceptType;
             using (WebResponse response = request.GetResponse())
             {
