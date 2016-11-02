@@ -34,6 +34,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <IncludeIisSettings>false</IncludeIisSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,6 +45,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -140,6 +144,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\doesnt-work.jpg" />
     <Content Include="Images\GachaTown\buy.jpg" />
     <Content Include="Images\GachaTown\buy2.jpg" />
     <Content Include="Images\GachaTown\collection1.jpg" />
@@ -152,6 +157,7 @@
     <Content Include="Images\GachaTown\town3.jpg" />
     <Content Include="Images\GitHub-Mark-32px.png" />
     <Content Include="Images\GitHub-Mark-Light-32px.png" />
+    <Content Include="Images\Seattle wide.jpg" />
     <Content Include="Images\versiworld\instructions.png" />
     <Content Include="Images\versiworld\level_three.png" />
     <Content Include="Images\versiworld\level_two.png" />
@@ -159,8 +165,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Jeffrey_M_Johnson_Resume.pdf" />
-    <None Include="Properties\PublishProfiles\Home.pubxml" />
-    <None Include="Properties\PublishProfiles\homey.pubxml" />
+    <None Include="Properties\PublishProfiles\jeffreymjohnson.net - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\jeffreymjohnson.net - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
