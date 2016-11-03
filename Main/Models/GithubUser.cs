@@ -79,10 +79,10 @@ namespace Main.Models
         }
         #endregion
         #region Constructor
-        public GithubUser(string dataPath)
+        public GithubUser(string dataPath, bool forceRefresh = false)
         {
             _reposDataPath = dataPath + "repos.json";
-            LoadData();
+            LoadData(forceRefresh);
             //debug
             //UpdateReadmeDataOnly();
         }
@@ -122,9 +122,9 @@ namespace Main.Models
             return JsonConvert.DeserializeObject<GithubRepoContent[]>(contents);
         }
 
-        private void LoadData()
+        private void LoadData(bool forceRefresh = false)
         {
-            if (!File.Exists(_reposDataPath))
+            if (forceRefresh || !File.Exists(_reposDataPath))
             {
                 RefreshDataFiles();
             }

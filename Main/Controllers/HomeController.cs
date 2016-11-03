@@ -21,9 +21,9 @@ namespace Main.Controllers
             return View();
         }
 
-        public ActionResult Projects()
+        public ActionResult Projects(bool forceRefresh = false)
         {
-            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\");
+            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\", forceRefresh);
             return View(user);
         }
 
