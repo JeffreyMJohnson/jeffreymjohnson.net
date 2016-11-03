@@ -9,6 +9,8 @@ Programmer / Designer - **Jeffrey M Johnson**
 ## How
 #### Tools / Libraries
 
+#### Interesting Code
+
 ## Current Status
 
 ## To-Do
