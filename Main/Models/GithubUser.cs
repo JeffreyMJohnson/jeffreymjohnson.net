@@ -31,19 +31,31 @@ namespace Main.Models
                 repo.UseMe = UseMeFlagSetting(repo.contents);
 
                 //get the readme if it exists
-                //GET /repos/:owner/:repo/readme
-                uri = string.Format("{0}/repos/{1}/{2}/readme", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME, repo.name);
-                try
-                {
-                    string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
-                    repo.ReadMe_html = response;
-                }
-                catch
-                {
-                    repo.ReadMe_html = "<div>No ReadMe file in the repo yet. Get on it.</div>";
-                }
+                repo.ReadMe_html = GetReadMeHTML(repo.name);
             }
             File.WriteAllText(_reposDataPath, JsonConvert.SerializeObject(Repos));
+        }
+
+        /// <summary>
+        /// Returns the README.md file from GitHub converted to HTML of the given repo if it exists, otherwise returns
+        /// HTML string : "<div>No ReadMe file in the repo yet. Get on it.</div>"
+        /// </summary>
+        /// <param name="repoName"></param>
+        /// <returns></returns>
+        public static string GetReadMeHTML(string repoName)
+        {
+            //get the readme if it exists
+            //GET /repos/:owner/:repo/readme
+            string uri = string.Format("{0}/repos/{1}/{2}/readme", Globals.GITHUB_API_URI, Globals.GITHUB_USERNAME, repoName);
+            try
+            {
+                string response = GetWebRequest(uri, "application/vnd.github.VERSION.html");
+                return response;
+            }
+            catch
+            {
+                return "<div>No ReadMe file in the repo yet. Get on it.</div>";
+            }
         }
 
         public GithubRepo GetRepo(string name)
@@ -79,6 +91,7 @@ namespace Main.Models
         }
         #endregion
         #region Constructor
+        public GithubUser() { }
         public GithubUser(string dataPath, bool forceRefresh = false)
         {
             _reposDataPath = dataPath + "repos.json";
@@ -133,7 +146,7 @@ namespace Main.Models
             FilterRepos();
         }
 
-        private String GetWebRequest(String uri, string acceptType = "application/json")
+        private static String GetWebRequest(String uri, string acceptType = "application/json")
         {
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             request.UserAgent = "Anything";

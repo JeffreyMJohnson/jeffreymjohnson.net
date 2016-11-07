@@ -23,16 +23,16 @@ namespace Main.Controllers
 
         public ActionResult Projects(bool forceRefresh = false)
         {
-            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\", forceRefresh);
-            return View(user);
+            return View();
         }
 
         public ActionResult ProjectDetail(string projectName)
-        {//todo implement exception handling for all views.
-            Main.Models.GithubUser user = new GithubUser(Server.MapPath("~/") + "App_Data\\");
+        {
+            Main.Models.GithubUser user = new GithubUser();
             try
             {
-                return View(user.GetRepo(projectName));
+                //just return the readme as string now.
+                return View((object)Main.Models.GithubUser.GetReadMeHTML(projectName));
             }
             catch (ArgumentException e)
             {
