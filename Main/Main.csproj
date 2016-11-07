@@ -165,7 +165,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Jeffrey_M_Johnson_Resume.pdf" />
-    <None Include="Properties\PublishProfiles\jeffreymjohnson.net - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\jeffreymjohnson.net - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
