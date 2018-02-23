@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Personal_Site.Models.BlogPost>
+@{
+    ViewBag.Title = "Home of Jeffrey M. Johnson";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-xs-3 col-md-2">
+                <img class="img-circle img-responsive" src="~/Images/Headshot-Thumbnail.png" alt="Headshot" />
+            </div>
+            <div class="col-xs-9 col-md-10">
+                <h1><b>Jeffrey M. Johnson</b></h1>
+                <h2>Programmer, Seattle WA</h2>
+            </div>
+        </div>
+        <div>
+            <blockquote> “The only true wisdom is in knowing you know nothing.” – Socrates</blockquote>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <p>
+        Welcome to my little piece of cyberspace. I'm a programmer living in the Seattle area of the beautiful
+        Pacific Northwest USA. My education was focused on interactive graphical applications (games and such)
+        and I love working on new challenges. I love to talk programming, gaming or pretty much any other geek
+        subject, so <a href="mailto:jefjohms@gmail.com">send me an email</a>  if you like.
+    </p>
+
+    <h2>My Ramblings</h2>
+    <hr />
+
+    @if (Model != null && Model.Any())
+    {
+
+        foreach (var blogPost in Model)
+        {
+            <h3>@blogPost.Title<small> @blogPost.Date.ToShortDateString()</small></h3>
+            <p class="lead">@blogPost.Summary</p>
+            <p>@Html.Raw(blogPost.Body)</p>
+            <hr />
+        }
+    }
+    else
+    {
+        <p><h3>No Blog Posts to list.</h3></p>
+    }
+
+    <p>
+        Take a look around if you'd like to get to know me, and feel free to ping me, my info is on the @Html.ActionLink("Contact", "Contact", "Home") page.
+    </p>
+    <div class="alert alert-warning">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        This site is also a learning project for myself, so it will go through some changes as I explore the web programming domain...
+    </div>
+</div>

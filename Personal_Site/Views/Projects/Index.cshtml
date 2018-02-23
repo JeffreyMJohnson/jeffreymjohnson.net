@@ -1,0 +1,43 @@
+﻿@using Personal_Site.Models
+@model IEnumerable<Personal_Site.Models.Project>
+@{
+    ViewBag.Title = "Projects";
+}
+
+<h2>Projects</h2>
+
+<div class="container-fluid">
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @for (int i = 0; i < Model.Count(); ++i)
+            {
+                if (i > 0 && i % 3 == 0)
+                {
+                    //close the row unless it's first project
+                @Html.Raw("</div><div class=\"row\">");
+                
+                }
+                <div class="col-md-4">
+                    <a class="thumbnail" href="/Projects/Details/@Model.ElementAt(i).Id">
+                        <div class="caption text-center h3">@Model.ElementAt(i).Title</div>
+
+                        @if (!@Model.ElementAt(i).ThumbnailUrl.IsEmpty())
+                        {
+                            <img class="thumbnail" src="@Model.ElementAt(i).ThumbnailUrl" alt="Uh oh, something went wonky."/>
+                        }
+
+
+                            <p>@Model.ElementAt(i).Summary</p>
+                    </a>
+                </div>
+            }
+        </div>    
+    }
+    else
+    {
+        <h1>No Projects Right Now</h1>
+
+    }
+</div>

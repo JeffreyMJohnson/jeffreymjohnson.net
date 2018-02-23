@@ -1,0 +1,24 @@
+namespace Personal_Site.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddGolemToProjects : DbMigration
+    {
+        public override void Up()
+        {
+            Sql(@"INSERT INTO Projects (Title, Summary, Implementation, Body, ThumbnailUrl)
+VALUES ('Golem by Highwire Games', 'Sword fighting giant stone monsters while exploring a giant ancient city, all In virtual reality!', 'Unreal Engine, C++', '<p><div class=""row""><div class=""col-md-4""><img class=""img-responsive"" src=""/Content/Images/Golem/Golem_Splash_Small.png"" /></div><div class=""col-md-4""><img class=""img-responsive"" src=""/Content/Images/Golem/golem_logo.png"" /></div><div class=""col-md-4""><img class=""img-responsive"" src=""/Content/Images/Golem/Twine_In_Bed.gif"" /></div></div></p>
+    <P><a href=""https://highwiregames.com/golem/"">Golem</a> is an ambitious project shipped as a Sony exclusive for the Playstation VR system by <a href=""https://highwiregames.com/"">Highwire Games.</a></P>
+    <p>I worked for Highwire for the final year of the product where I implemented the menu systems for the game.  I have always used Unity and C# so far in my career, so moving to Unreal was the first hurdle to overcome. It’s a great engine, and after getting used to the systems and patterns I think it might be my current favorite.</p>
+    <p>There were some challenges the largest of which was the fact the Unreal engine’s UI system does not work in stereoscopic rendering mode. It was decided to use a particle text system that allowed you to print text anywhere in the world. I would then produce the menu (as a list of text) about an arm’s distance away from the user. Tweaking the effect could produce “selected” state, etc.</p>
+    <p><strong>Implemented using: </strong>Unreal Engine, C++</p>
+    <p>For more info on Golem, check out this <a href=""https://blog.us.playstation.com/2017/12/09/golem-the-power-of-your-dreams/"" target=""_blank"">blog post</a> from the creative director Jaime Griesemer</p>
+    <p><small><i>All Golem images are owned by Highwire Games LLC and used with their permission.</i></small></p>', '/Content/Images/Golem/golem_logo.png')");
+        }
+        
+        public override void Down()
+        {
+        }
+    }
+}

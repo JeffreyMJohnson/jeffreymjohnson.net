@@ -1,0 +1,21 @@
+﻿@model Personal_Site.Models.Project
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>@Model.Title</h2>
+
+    <p class="lead">@Model.Summary</p>
+
+    <p><p><strong>Implemented using: </strong>@Model.Implementation</p></p>
+
+    @if (Model.DetailBody != null)
+    {
+        @Html.Partial("DetailBody/" + @Model.DetailBody)
+    }
+
+</div>
+
+
