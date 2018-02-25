@@ -1,0 +1,40 @@
+﻿    
+<p>
+    <div class="row">
+        <div class="col-md-4"><img class="img-responsive img-thumbnail" src="/Content/Images/Unreal_Menu/unreal_menu_host_steam.png"/></div>
+        <div class="col-md-4"><img class="img-responsive img-thumbnail" src="/Content/Images/Unreal_Menu/unreal_menu_host_steam_enter_server.png"/></div>
+        <div class="col-md-4"><img class="img-responsive img-thumbnail" src="/Content/Images/Unreal_Menu/unreal_menu_join.png"/></div>
+    </div>
+</p>
+
+<p>
+    This demonstrates using Unreal’s UMG UI system as well as the online subsystem implementation.  The code is 99% C++ with the UI layout done in the UserWidget blueprint system.
+</p>
+
+<p>
+    The hosting functionality uses the Unreal’s Session pattern and allows the user to set a friendly name for the server when listing it in the join menu.
+</p>
+
+<P>
+    The joining functionality makes a find session request of the appropriate network type. When the system returns a result (async process) any servers being currently hosted will be listed.  The user then selects the server they want to join.
+</P>
+
+<p>
+    Once a game is hosted or joined, the user is in the lobby (currently just a blank level with each player character in it). The current setup launches the game when 3 or more users join and 10 seconds has elapsed.
+</p>
+
+<p>
+    In the future I will implement UI for the lobby to set game options for the host, and a ready to start for the clients. A chat system would be interesting as well.
+</p>
+
+<p>
+    The classes of note are <a href="https://github.com/JeffreyMJohnson/2_Menu_System/blob/master/PuzzlePlatforms/Source/PuzzlePlatforms/PuzzlePlatformsGameInstance.cpp">PuzzlePlatformsGameInstance.cpp</a>, and <a href="https://github.com/JeffreyMJohnson/2_Menu_System/blob/master/PuzzlePlatforms/Source/PuzzlePlatforms/MenuSystem/MainMenu.cpp">MainMenu.cpp.</a>
+</p>
+
+<p>
+    <a href="https://github.com/JeffreyMJohnson/2_Menu_System">Source Code</a>
+</p>    
+<p>
+    <a href="https://github.com/JeffreyMJohnson/2_Menu_System/releases/tag/v0.2">Try it out!</a>
+</p>
+    

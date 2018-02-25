@@ -260,6 +260,10 @@
     <Content Include="Content\Images\Golem\Twine_In_Bed.gif" />
     <Content Include="Content\Images\jmath_thumb.png" />
     <Content Include="Content\Images\M_And_M_Thumb_small.png" />
+    <Content Include="Content\Images\Unreal_Menu\unreal_menu_host_steam.png" />
+    <Content Include="Content\Images\Unreal_Menu\unreal_menu_host_steam_enter_server.png" />
+    <Content Include="Content\Images\Unreal_Menu\unreal_menu_join.png" />
+    <Content Include="Content\Images\Unreal_Menu\unreal_menu_thumb.png" />
     <Content Include="Content\Images\Web_Site_Thumb.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -274,8 +278,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\JeffreyMJohnson - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\JeffreyMJohnson - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\JeffreyMJohnson.net_WebPub.pubxml" />
     <None Include="Properties\PublishProfiles\JeffreyMJohnson_FTP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -332,6 +334,7 @@
     <Content Include="Views\Projects\DetailBody\_GolemBody.cshtml" />
     <Content Include="Views\Projects\DetailBody\_BabyKaijuBody.cshtml" />
     <Content Include="Views\Projects\DetailBody\_JMathBody.cshtml" />
+    <Content Include="Views\Projects\DetailBody\_UnrealMultiplayerMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
