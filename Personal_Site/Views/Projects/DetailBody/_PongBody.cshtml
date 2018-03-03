@@ -1,0 +1,25 @@
+﻿<p>
+    <div class="row">
+        <div class="col-md-4"><img class="img-responsive" src="/Content/Images/Pong/start_menu.png"/></div>
+        <div class="col-md-4"><img class="img-responsive" src="/Content/Images/Pong/play.png"/></div>
+        <div class="col-md-4"><img class="img-responsive" src="/Content/Images/Pong/win_menu.png"/></div>
+    </div>
+</p>
+
+<p>
+    Project I made to show some rapid prototyping skills. The UI and menu's were the most time consuming mostly because of the time it takes to layout all of the components.
+</p>
+<P>
+    There is a general <a href="https://github.com/JeffreyMJohnson/Pong_Clone/blob/master/Assets/Scripts/GameManager.cs">GameManager class</a> that does most of the game logic including instantiating and destroying menus when needed, keeping track of the game state etc.  A <a href="https://github.com/JeffreyMJohnson/Pong_Clone/blob/master/Assets/Scripts/ManageScore.cs">score manager</a> class is the other main piece of logic and it is responsible for handling scoring by the ball and calling a state change in the game manager when appropriate.
+</P>
+
+<p>
+    The 'ball' is completely controlled by a 2D rigidbody and physics. With no drag, no gravity and a material of a perfect bounce assigned to all other objects. The ball is spawned in the scene and a force vector is calculated at random and applied to it.
+</p>
+
+<p>
+    <ul>
+        <li><a href="~/Content/ProjectFiles/Pong/index.html">Try It Out!</a></li>
+        <li><a href="https://github.com/JeffreyMJohnson/Pong_Clone">Github</a></li>
+    </ul>
+</p>

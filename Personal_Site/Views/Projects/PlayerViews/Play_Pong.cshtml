@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Play Pong</title>
+    <script src="~/ProjectFiles/Pong/Build/UnityLoader.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json");
+    </script>
+</head>
+<body>
+<div class="container">
+    @Html.Partial("_NavBar");
+</div>
+
+<div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+</body>
+</html>

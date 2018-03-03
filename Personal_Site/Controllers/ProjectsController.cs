@@ -40,6 +40,11 @@ namespace Personal_Site.Controllers
             return View(project);
         }
 
+        public ActionResult PlayDemo(string project)
+        {
+            return View(project);
+        }
+
         private ApplicationDbContext _context;
 
         private IEnumerable<Project> GetProjects()

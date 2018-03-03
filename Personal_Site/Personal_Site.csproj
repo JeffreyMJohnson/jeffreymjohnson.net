@@ -260,6 +260,10 @@
     <Content Include="Content\Images\Golem\Twine_In_Bed.gif" />
     <Content Include="Content\Images\jmath_thumb.png" />
     <Content Include="Content\Images\M_And_M_Thumb_small.png" />
+    <Content Include="Content\Images\Pong\play.png" />
+    <Content Include="Content\Images\Pong\pong_thumb.png" />
+    <Content Include="Content\Images\Pong\start_menu.png" />
+    <Content Include="Content\Images\Pong\win_menu.png" />
     <Content Include="Content\Images\Unreal_Menu\unreal_menu_host_steam.png" />
     <Content Include="Content\Images\Unreal_Menu\unreal_menu_host_steam_enter_server.png" />
     <Content Include="Content\Images\Unreal_Menu\unreal_menu_join.png" />
@@ -272,9 +276,39 @@
     <Content Include="Images\GitHub-Mark-32px.png" />
     <Content Include="Images\Headshot-Thumbnail.png" />
     <Content Include="Images\linkedIn_button_small.png" />
+    <Content Include="Content\ProjectFiles\Pong\Build\UnityLoader.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\index.html" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\favicon.ico" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\fullscreen.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressEmpty.Dark.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressEmpty.Light.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressFull.Dark.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressFull.Light.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressLogo.Dark.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\progressLogo.Light.png" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\style.css" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\UnityProgress.js" />
+    <Content Include="Content\ProjectFiles\Pong\TemplateData\webgl-logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\Build\WebGL.asm.code.unityweb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\Build\WebGL.asm.framework.unityweb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\Build\WebGL.asm.memory.unityweb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\Build\WebGL.data.unityweb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ProjectFiles\Pong\Build\WebGL.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -335,11 +369,13 @@
     <Content Include="Views\Projects\DetailBody\_BabyKaijuBody.cshtml" />
     <Content Include="Views\Projects\DetailBody\_JMathBody.cshtml" />
     <Content Include="Views\Projects\DetailBody\_UnrealMultiplayerMenu.cshtml" />
+    <Content Include="Views\Projects\DetailBody\_JeffreyMJohnsonNetBody.cshtml" />
+    <Content Include="Views\Projects\DetailBody\_PongBody.cshtml" />
+    <Content Include="Views\Projects\PlayerViews\Play_Pong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\Atlas_Engine\" />
-    <Folder Include="Images\Golem\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
