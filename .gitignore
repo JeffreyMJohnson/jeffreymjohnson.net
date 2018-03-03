@@ -249,3 +249,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Personal_Site/ConnectionStrings.config
+/Personal_Site/AppSettingsSecrets.config
+/Personal_Site/ConnectionStrings_Release.config
