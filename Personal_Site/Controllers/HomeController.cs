@@ -43,11 +43,16 @@ namespace Personal_Site.Controllers
             return View();
         }
 
+        public ActionResult CreateBlog()
+        {
+            return View();
+        }
+
         private ApplicationDbContext _context = null;
 
         private IEnumerable<BlogPost> GetBlogPosts()
         {
-            var posts = _context.BlogPosts;
+            var posts = _context.BlogPosts.OrderByDescending(p => p.Date);
             return posts;
         }
     }
