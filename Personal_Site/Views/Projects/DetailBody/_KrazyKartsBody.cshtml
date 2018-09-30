@@ -1,0 +1,205 @@
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<p>
+    A simple car simulation for learning how to implement rudimentary physics.  The real time data of the user input (throttle and steering) is then used to calculate final velocity and rotation of the car.
+</p>
+
+<p>
+    <ul>
+        <li><a href="~/Content/ProjectFiles/Krazy_Karts/Krazy_Karts-HTML5-Shipping.html">Try It Out!</a></li>
+        <li><a href="https://github.com/JeffreyMJohnson/Krazy_Karts">Github</a></li>
+    </ul>
+</p>
+
+<hr/>
+
+<p>
+    <h3>Forward / Reverse</h3>
+    <h5>Tweakable Constants</h5>
+    <ul>
+        <li>Maximum Drive Force of the simulated engine.</li>
+        <li>Drag Coefficient of the object.</li>
+        <li>Rolling Resistance Coefficient of the object.</li>
+        <li>Mass of the object.</li>
+    </ul>
+
+    <h5>Drive Force - The force applied to the object by the simulated engine.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Drive Force</mi>
+                    <mo>=</mo>
+                    <mi>Throttle (Input)</mi>
+                    <mo>*</mo>
+                    <mi>Max Driving Force</mi>
+                    <mo>*</mo>
+                    <mi>Object's Forward Vector</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</p>
+
+<P>
+    <h5>Air Resistance - The force applied to the object from drag in the opposite direction of the drive force.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Air Resistance</mi>
+                    <mo>=</mo>
+                    <mo>-</mo>
+                    <mo>(</mo>
+                    <mi>Object's Normalized Velocity (Direction)</mi>
+                    <mo>)</mo>
+                    <mo>*</mo>
+                    <msup>
+                        <mi>Speed</mi><mn>2</mn>
+                    </msup>
+                    <mo>*</mo>
+                    <mi>Drag Coefficient</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<P>
+    <h5>Rolling Resistance - Force applies to the object by gravity and the friction of the object and contact surface.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Acceleration Due to Gravity</mi>
+                    <mo>=</mo>
+                    <mi>Mass</mi>
+                    <mo>*</mo>
+                    <mi>Gravity Force</mi>
+                </mrow>
+            </math>
+        </li>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Rolling Resistance</mi>
+                    <mo>=</mo>
+                    <mo>-</mo>
+                    <mo>(</mo>
+                    <mi>Object's Normalized Velocity (Direction)</mi>
+                    <mo>)</mo>
+                    <mo>*</mo>
+                    <mi>Rolling Resistance Coefficient</mi>
+                    <mo>*</mo>
+                    <mi>Acceleration Due to Gravity</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<P>
+    <h5>Acceleration - The force applied to the object taking in to account the parameters and law of motion.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Acceleration</mi>
+                    <mo>=</mo>
+                </mrow>
+                <mfrac>
+                    <mrow>
+                        <mo>(</mo>
+                        <mi>Drive Force</mi>
+                        <mo>+</mo>
+                        <mi>Air Resistance</mi>
+                        <mo>+</mo>
+                        <mi>Rolling Resistance</mi>
+                        <mo>)</mo>
+                    </mrow>
+                    <mrow>
+                        <mi>Mass</mi>
+                    </mrow>
+                </mfrac>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<P>
+    <h5>Final Velocity - The current velocity of the object in the current time slice.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mo>Final Velocity</mo>
+                    <mi>=</mi>
+                    <mi>Current Velocity</mi>
+                    <mo>+</mo>
+                    <mi>Acceleration</mi>
+                    <mo>*</mo>
+                    <mi>Delta Time</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<hr/>
+
+<p>
+    <h3>Steering</h3>
+    <h5>Tweakable Constants</h5>
+    <ul>
+        <li>Minimum Turning Radius.</li>
+    </ul>
+
+    <h5>Distance Delta - The distance the object will move in this time slice</h5>
+    <ul>
+        <li>Because the speed (magnitude of the velocity) will always be 0 or greater, we use the dot product of the velocity and the car’s forward vector which will return less than 0 if car is reversing</li>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mo>Distance Delta</mo>
+                    <mi>=</mi>
+                    <mi>DotProduct</mi>
+                    <mo>(</mo>
+                    <mi>Velocity</mi>
+                    <mo>,</mo>
+                    <mi>Object's Forward Vector</mi>
+                    <mo>)</mo>
+                    <mo>*</mo>
+                    <mi>Delta Time</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<P>
+    <h5>Rotation Angle - The angle the object rotates around the z axis.</h5>
+    <ul>
+        <li>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mrow>
+                    <mi>Rotation Angle</mi>
+                    <mo>=</mo>
+                    <mo>(</mo>
+                    <mfrac>
+                        <mrow>
+                            <mi>Distance Delta</mi>
+                        </mrow>
+                        <mrow><mi>Minimum Turning Radius</mi></mrow>
+                    </mfrac>
+                    <mo>)</mo>
+                    <mo>*</mo>
+                    <mi>Steering (Input)</mi>
+                </mrow>
+            </math>
+        </li>
+    </ul>
+</P>
+
+<p>
+    
+</p>

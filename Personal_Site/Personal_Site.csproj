@@ -379,6 +379,7 @@
     <Content Include="Views\Projects\PlayerViews\Play_Pong.cshtml" />
     <Content Include="Views\Home\CreateBlog.cshtml" />
     <Content Include="Web_Data\Software Development Engineer.pdf" />
+    <Content Include="Views\Projects\DetailBody\_KrazyKartsBody.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
