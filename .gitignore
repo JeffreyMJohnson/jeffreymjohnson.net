@@ -252,3 +252,5 @@ ModelManifest.xml
 /Personal_Site/ConnectionStrings.config
 /Personal_Site/AppSettingsSecrets.config
 /Personal_Site/ConnectionStrings_Release.config
+
+/Personal_Site/Content/ProjectFiles
