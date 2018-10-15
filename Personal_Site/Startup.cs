@@ -10,5 +10,7 @@ namespace Personal_Site
         {
             ConfigureAuth(app);
         }
+
+        
     }
 }

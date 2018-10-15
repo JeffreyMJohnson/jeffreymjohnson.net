@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Personal_Site.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public HomeController()

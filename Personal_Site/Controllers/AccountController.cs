@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -481,5 +482,12 @@ namespace Personal_Site.Controllers
             }
         }
         #endregion
+
+        public ActionResult Logout()
+        {
+           AuthenticationManager.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
