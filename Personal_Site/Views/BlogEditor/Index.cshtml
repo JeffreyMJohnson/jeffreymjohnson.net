@@ -4,4 +4,72 @@
     ViewBag.Title = "Blog Editor";
 }
 
+<style>
+    container {
+        /*margin-left: 0px;*/
+
+    }
+     .left-column {
+         float: left;
+         width: 25%;
+         margin-left: 0px;
+
+         border: 2px solid blue;
+
+         min-height: 100%;
+
+     }
+
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+    .container.wide {
+        width: 100%;
+    }
+
+    @@media all and (min-width:1200px) {
+        .container.body-content {
+            width: 100%;
+            margin: 20px;
+        }
+    }
+    
+</style>
+
 <h2>Edit Blogs</h2>
+<div class="container wide">
+    <div class="row" style="height: 750px; overflow: hidden">
+        <div class="col-lg-2" style="border: 1px solid blue; max-height: 100%; overflow: scroll">
+            @*nav column*@
+            <ul>
+                @for (int i = 0; i < 1000; i++)
+                {
+                    <li>Blog @i</li>
+                }
+            </ul>
+        </div>
+        <div class="col-lg-10">
+            @*body*@
+            <form>
+                <div class="form-group">
+                    <label for="BlogTitle">Title</label>
+                    <input class="form-control" type="text" id="BlogTitle" placeholder="Title" />
+                </div>
+                <div class="form-group">
+                    <label for="BlogSummary">Summary</label>
+                    <input class="form-control" type="text" id="BlogSummary" placeholder="Summary" />
+                </div>
+                <div> <textarea class="form-control" id="BlogBody" rows="25"></textarea></div>
+                <div> <button type="button" class="btn btn-primary">Save</button></div>
+            </form>
+            
+        </div>
+
+    </div>
+   
+</div>
+
+
+
