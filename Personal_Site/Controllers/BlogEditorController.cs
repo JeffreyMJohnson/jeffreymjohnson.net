@@ -43,6 +43,11 @@ namespace Personal_Site.Controllers
         [HttpGet]
         public JsonResult SaveBlogPost(BlogPost blogPost)
         {
+            //check if new record
+            if (blogPost.Id == 0)
+            {
+
+            }
             return Json(new {success = true});
         }
 
