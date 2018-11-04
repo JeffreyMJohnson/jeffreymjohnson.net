@@ -8,7 +8,7 @@ namespace Personal_Site.Models
 {
     public class BlogPost
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Required]
         public string Title { get; set; }
         public DateTime Date { get; set; }

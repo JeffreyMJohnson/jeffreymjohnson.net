@@ -44,11 +44,30 @@ namespace Personal_Site.Controllers
         public JsonResult SaveBlogPost(BlogPost blogPost)
         {
             //check if new record
+            var success = false;
             if (blogPost.Id == 0)
             {
+                blogPost.Id = null;
+                blogPost.Date = DateTime.Now;
 
+                _dbContext.BlogPosts.Add(blogPost);
+                _dbContext.SaveChanges();
+                success = true;
             }
-            return Json(new {success = true});
+            else
+            {
+                var post = _dbContext.BlogPosts.FirstOrDefault(p => p.Id == blogPost.Id);
+                if (post != null)
+                {
+                    post.Title = blogPost.Title;
+                    post.Summary = blogPost.Summary;
+                    post.Body = blogPost.Body;
+
+                    _dbContext.SaveChanges();
+                    success = true;
+                }
+            }
+            return Json(new {success = success});
         }
 
 
