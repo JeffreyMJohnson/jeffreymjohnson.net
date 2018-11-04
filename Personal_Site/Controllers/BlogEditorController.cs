@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using Personal_Site.Models;
@@ -28,7 +29,7 @@ namespace Personal_Site.Controllers
         [RequireHttps]
         [Authorize]
         [HttpGet]
-        public JsonResult GetBlog(int id = 0)
+        public JsonResult GetBlogPost(int id = 0)
         {
             if (id == 0) return null;
 
@@ -37,6 +38,13 @@ namespace Personal_Site.Controllers
             return Json(blog, JsonRequestBehavior.AllowGet);
         }
 
+        [RequireHttps]
+        [Authorize]
+        [HttpGet]
+        public JsonResult SaveBlogPost(BlogPost blogPost)
+        {
+            return Json(new {success = true});
+        }
 
 
     }

@@ -95,17 +95,20 @@
         if (selectedBlogId === id) return;
 
         SetSelectionStyles(id);
+        SendBlogPostGetRequest(id)
+
+        selectedBlogId = id;
+    }
+
+    function SendBlogPostGetRequest(id) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = HandleBlogPostGetRequest;
 
-        var url = "@Url.Action("GetBlog")";
+        var url = "@Url.Action("GetBlogPost")";
         url += "?id=" + id;
 
         xhttp.open("GET", url, true);
         xhttp.send();
-        //get the blog data
-
-        selectedBlogId = id;
     }
 
     function HandleBlogPostGetRequest() {
