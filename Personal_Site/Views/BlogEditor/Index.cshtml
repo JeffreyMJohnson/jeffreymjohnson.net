@@ -1,24 +1,10 @@
-﻿@*@model dynamic*@
+﻿@model List<Personal_Site.Models.BlogPost>
 
 @{
     ViewBag.Title = "Blog Editor";
 }
 
 <style>
-    container {
-        /*margin-left: 0px;*/
-
-    }
-     .left-column {
-         float: left;
-         width: 25%;
-         margin-left: 0px;
-
-         border: 2px solid blue;
-
-         min-height: 100%;
-
-     }
 
     input,
     select,
@@ -35,20 +21,46 @@
             margin: 20px;
         }
     }
+
+    .BlogPostColumn {
+        background-color: #F1F2F2;
+        border: 1px solid #458594;
+        height: 100%;
+        overflow: scroll
+    }
+
+    .BlogPostSelector {
+        margin: 10px 5px;
+        padding: 10px 5px;
+        background-color: #D1DADC;
+        border: 1px solid #80ABB5;
+    }
+
+        .BlogPostSelector:hover {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        .BlogPostSelector.Selected {
+            background-color: rgba(0, 141, 255, 0.86);
+            color: #f1f2f2;
+        }
     
 </style>
 
 <h2>Edit Blogs</h2>
 <div class="container wide">
     <div class="row" style="height: 750px; overflow: hidden">
-        <div class="col-lg-2" style="border: 1px solid blue; max-height: 100%; overflow: scroll">
+        <div class="col-lg-2 BlogPostColumn">
             @*nav column*@
-            <ul>
-                @for (int i = 0; i < 1000; i++)
-                {
-                    <li>Blog @i</li>
-                }
-            </ul>
+            <div class="BlogPostSelector Selected" id="0" onclick="SelectBlogPost(0)">
+                <b>New Blog</b>
+            </div>
+            @foreach (var blog in @Model)
+            {
+                <div class="BlogPostSelector" id="@blog.Id" onclick="SelectBlogPost(@blog.Id)">
+                    <b>@blog.Title</b>
+                </div>
+            }
         </div>
         <div class="col-lg-10">
             @*body*@
@@ -70,6 +82,58 @@
     </div>
    
 </div>
+
+<script>
+    var selectedBlogId = "0";
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("DOM fully loaded and parsed");
+    });
+
+    function SelectBlogPost(id) {
+        //if click already selected ignore
+        if (selectedBlogId === id) return;
+
+        SetSelectionStyles(id);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = HandleBlogPostGetRequest;
+
+        var url = "@Url.Action("GetBlog")";
+        url += "?id=" + id;
+
+        xhttp.open("GET", url, true);
+        xhttp.send();
+        //get the blog data
+
+        selectedBlogId = id;
+    }
+
+    function HandleBlogPostGetRequest() {
+        if (this.readyState == 4 && this.status == 200) {
+            var title = "";
+            var summary = "";
+            var body = "";
+            if (this.responseText != "") {
+                var data = JSON.parse(this.responseText);
+                title = data.Title;
+                summary = data.Summary;
+                body = data.Body;
+            } 
+            document.getElementById("BlogTitle").value = title;
+            document.getElementById("BlogSummary").value = summary;
+            document.getElementById("BlogBody").value = body;
+        }
+    }
+
+    function SetSelectionStyles(id) {
+        //turn off the selector style
+        document.getElementById(selectedBlogId).classList.remove("Selected");
+        //turn on the selector style
+        document.getElementById(id).classList.add("Selected");
+    }
+
+    
+</script>
 
 
 

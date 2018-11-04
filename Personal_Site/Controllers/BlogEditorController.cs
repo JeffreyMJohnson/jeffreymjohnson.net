@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Personal_Site.Models;
 
@@ -24,7 +25,19 @@ namespace Personal_Site.Controllers
             return View(blogs);
         }
 
-        
+        [RequireHttps]
+        [Authorize]
+        [HttpGet]
+        public JsonResult GetBlog(int id = 0)
+        {
+            if (id == 0) return null;
+
+            var blog = _dbContext.BlogPosts.FirstOrDefault(p => p.Id == id);
+
+            return Json(blog, JsonRequestBehavior.AllowGet);
+        }
+
+
 
     }
 }
