@@ -300,6 +300,7 @@
     <Content Include="Content\ProjectFiles\Pong\TemplateData\style.css" />
     <Content Include="Content\ProjectFiles\Pong\TemplateData\UnityProgress.js" />
     <Content Include="Content\ProjectFiles\Pong\TemplateData\webgl-logo.png" />
+    <Content Include="Scripts\application\BlogEditor.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

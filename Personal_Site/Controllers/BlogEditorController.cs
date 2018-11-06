@@ -40,7 +40,7 @@ namespace Personal_Site.Controllers
 
         [RequireHttps]
         [Authorize]
-        [HttpGet]
+        [HttpPost]
         public JsonResult SaveBlogPost(BlogPost blogPost)
         {
             //check if new record

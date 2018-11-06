@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Personal_Site.Models
 {
@@ -14,6 +15,7 @@ namespace Personal_Site.Models
         public DateTime Date { get; set; }
         [Required]
         public string Summary { get; set; }
+        [AllowHtml]
         [Required]
         public string Body { get; set; }
     }

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Blog Editor";
 }
+<script type="text/javascript" src="~/Scripts/application/BlogEditor.js"></script>
 
 <style>
 
@@ -52,91 +53,43 @@
     <div class="row" style="height: 750px; overflow: hidden">
         <div class="col-lg-2 BlogPostColumn">
             @*nav column*@
-            <div class="BlogPostSelector Selected" id="0" onclick="SelectBlogPost(0)">
+            @{ var url = Url.Action("GetBlogPost") + $"?id=0"; }
+            <div class="BlogPostSelector Selected" id="0" onclick="SelectBlogPost(0)" data-url="@url">
                 <b>New Blog</b>
             </div>
             @foreach (var blog in @Model)
             {
-                <div class="BlogPostSelector" id="@blog.Id" onclick="SelectBlogPost(@blog.Id)">
+                url = Url.Action("GetBlogPost") + $"?id={@blog.Id}";
+
+                <div class="BlogPostSelector" id="@blog.Id" data-url="@url" onclick="SelectBlogPost(@blog.Id)">
                     <b>@blog.Title</b>
                 </div>
             }
         </div>
         <div class="col-lg-10">
             @*body*@
-            <form>
+            @using (Html.BeginForm("SaveBlogPost", "BlogEditor", FormMethod.Post, new { @id = "BlogForm" }))
+            {
+                @Html.Hidden("Id", 0)
                 <div class="form-group">
-                    <label for="BlogTitle">Title</label>
-                    <input class="form-control" type="text" id="BlogTitle" placeholder="Title" />
+                    @Html.Label("Title")
+                    @Html.TextBox("Title", "", new { @class = "form-control", required = "" })
                 </div>
                 <div class="form-group">
-                    <label for="BlogSummary">Summary</label>
-                    <input class="form-control" type="text" id="BlogSummary" placeholder="Summary" />
+                    @Html.Label("Summary")
+                    @Html.TextBox("Summary", "", new { @class = "form-control", required = "" })
                 </div>
-                <div> <textarea class="form-control" id="BlogBody" rows="25"></textarea></div>
-                <div> <button type="button" class="btn btn-primary">Save</button></div>
-            </form>
-            
+                @Html.TextArea("Body", "", new { @class = "form-control", rows = "25", required = "" })
+                <button type="Submit" class="btn btn-primary">Save</button>
+            }
+
         </div>
 
     </div>
    
 </div>
 
-<script>
-    var selectedBlogId = "0";
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("DOM fully loaded and parsed");
-    });
-
-    function SelectBlogPost(id) {
-        //if click already selected ignore
-        if (selectedBlogId === id) return;
-
-        SetSelectionStyles(id);
-        SendBlogPostGetRequest(id)
-
-        selectedBlogId = id;
-    }
-
-    function SendBlogPostGetRequest(id) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = HandleBlogPostGetRequest;
-
-        var url = "@Url.Action("GetBlogPost")";
-        url += "?id=" + id;
-
-        xhttp.open("GET", url, true);
-        xhttp.send();
-    }
-
-    function HandleBlogPostGetRequest() {
-        if (this.readyState == 4 && this.status == 200) {
-            var title = "";
-            var summary = "";
-            var body = "";
-            if (this.responseText != "") {
-                var data = JSON.parse(this.responseText);
-                title = data.Title;
-                summary = data.Summary;
-                body = data.Body;
-            } 
-            document.getElementById("BlogTitle").value = title;
-            document.getElementById("BlogSummary").value = summary;
-            document.getElementById("BlogBody").value = body;
-        }
-    }
-
-    function SetSelectionStyles(id) {
-        //turn off the selector style
-        document.getElementById(selectedBlogId).classList.remove("Selected");
-        //turn on the selector style
-        document.getElementById(id).classList.add("Selected");
-    }
-
-    
-</script>
 
 
 
