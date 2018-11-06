@@ -41,7 +41,7 @@ namespace Personal_Site.Controllers
         [RequireHttps]
         [Authorize]
         [HttpPost]
-        public JsonResult SaveBlogPost(BlogPost blogPost)
+        public ActionResult SaveBlogPost(BlogPost blogPost)
         {
             //check if new record
             var success = false;
@@ -67,7 +67,8 @@ namespace Personal_Site.Controllers
                     success = true;
                 }
             }
-            return Json(new {success = success});
+
+            return RedirectToAction("Index");
         }
 
 

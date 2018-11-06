@@ -1,7 +1,5 @@
 ﻿$(function () {
-    $("#BlogForm").submit(function(data) {
-        console.log(data);
-    });
+    
 });
 
 function SelectBlogPost(id) {
