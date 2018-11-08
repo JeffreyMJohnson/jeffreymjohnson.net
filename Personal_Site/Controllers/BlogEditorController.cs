@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using System.Web.Helpers;
 using System.Web.Mvc;
+using Markdig;
 using Personal_Site.Models;
 
 namespace Personal_Site.Controllers
@@ -34,7 +34,7 @@ namespace Personal_Site.Controllers
             if (id == 0) return null;
 
             var blog = _dbContext.BlogPosts.FirstOrDefault(p => p.Id == id);
-
+            
             return Json(blog, JsonRequestBehavior.AllowGet);
         }
 

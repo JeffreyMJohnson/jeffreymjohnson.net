@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Markdig;
 
 namespace Personal_Site.Controllers
 {
     [RequireHttps]
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context = null;
+
         public HomeController()
         {
             _context = new ApplicationDbContext();
@@ -23,8 +26,19 @@ namespace Personal_Site.Controllers
 
         public ActionResult Index()
         {
-            var posts = GetBlogPosts();
+            var posts = _context.BlogPosts.OrderByDescending(p => p.Date).ToList();
+            ConvertBlogPostMarkdownToHtml(ref posts);
             return View(posts);
+        }
+
+        private void ConvertBlogPostMarkdownToHtml(ref List<BlogPost> posts)
+        {
+            foreach (var blogPost in posts)
+            {
+                var body = blogPost.Body;
+                var bodyAsHtml = Markdown.ToHtml(body);
+                blogPost.Body = bodyAsHtml;
+            }
         }
 
         public ActionResult About()
@@ -49,12 +63,6 @@ namespace Personal_Site.Controllers
             return View();
         }
 
-        private ApplicationDbContext _context = null;
-
-        private IEnumerable<BlogPost> GetBlogPosts()
-        {
-            var posts = _context.BlogPosts.OrderByDescending(p => p.Date);
-            return posts;
-        }
+        
     }
 }
