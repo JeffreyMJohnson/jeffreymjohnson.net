@@ -6,6 +6,7 @@ using Personal_Site.Models;
 
 namespace Personal_Site.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class BlogEditorController : Controller
     {
         private IDbContext _dbContext;

@@ -1,7 +1,7 @@
 ﻿@using System.ServiceModel
 @using Personal_Site.Models
 @{
-    var IsAuthenticated = User.Identity.IsAuthenticated;
+    var IsAuthenticated = User.Identity.IsAuthenticated && User.IsInRole("Administrator");
     var Name = User.Identity.Name;
 }
 <div class="container">

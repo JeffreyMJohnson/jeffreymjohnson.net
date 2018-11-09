@@ -248,6 +248,10 @@
     <Compile Include="Migrations\201811040044177_AddRequirementsToBlogPostModel.Designer.cs">
       <DependentUpon>201811040044177_AddRequirementsToBlogPostModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811082234007_UpdateBlogPostModel.cs" />
+    <Compile Include="Migrations\201811082234007_UpdateBlogPostModel.Designer.cs">
+      <DependentUpon>201811082234007_UpdateBlogPostModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogPost.cs" />
@@ -266,6 +270,7 @@
     <Content Include="Content\bootstrap-cerulean.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\google1309c2ae9c2e9cf8.html" />
     <Content Include="Content\Images\Baby_Kaiju\kaiju_thumb.png" />
     <Content Include="Content\Images\Golem\golem_logo.png" />
     <Content Include="Content\Images\Golem\Golem_Splash_Small.png" />
@@ -447,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811040044177_AddRequirementsToBlogPostModel.resx">
       <DependentUpon>201811040044177_AddRequirementsToBlogPostModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811082234007_UpdateBlogPostModel.resx">
+      <DependentUpon>201811082234007_UpdateBlogPostModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
