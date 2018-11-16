@@ -273,6 +273,11 @@
     <Content Include="Content\google1309c2ae9c2e9cf8.html" />
     <Content Include="Content\Images\Baby_Kaiju\kaiju_thumb.png" />
     <Content Include="Content\Images\BlogPosts\blogpost_frontend_screenshot.jpg" />
+    <Content Include="Content\Images\BlogPosts\tut_setup\Add_controller_screen_1.png" />
+    <Content Include="Content\Images\BlogPosts\tut_setup\Add_controller_screen_2.png" />
+    <Content Include="Content\Images\BlogPosts\tut_setup\blogpost_model_screen.png" />
+    <Content Include="Content\Images\BlogPosts\tut_setup\create_web_app_screen.png" />
+    <Content Include="Content\Images\BlogPosts\tut_setup\enable_migrations_screen.png" />
     <Content Include="Content\Images\Golem\golem_logo.png" />
     <Content Include="Content\Images\Golem\Golem_Splash_Small.png" />
     <Content Include="Content\Images\Golem\Twine_In_Bed.gif" />
