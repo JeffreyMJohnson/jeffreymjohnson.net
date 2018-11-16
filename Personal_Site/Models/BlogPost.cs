@@ -19,6 +19,7 @@ namespace Personal_Site.Models
         [Required]
         public string Summary { get; set; }
        
+        [AllowHtml]
         [Required]
         public string Body { get; set; }
     }
